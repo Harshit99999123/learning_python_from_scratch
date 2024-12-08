@@ -37,7 +37,7 @@ encrypt_or_decrypt = ""
 while encrypt_or_decrypt.lower() != "encrypt" and encrypt_or_decrypt.lower() != "decrypt":
     encrypt_or_decrypt = input("What do you want encrypt or decrypt? ")
     if encrypt_or_decrypt.lower() != "encrypt" and encrypt_or_decrypt.lower() != "decrypt":
-        print("Invalid argument")
+        print("Invalid argument. Please choose either encrypt option or decrypt option.")
 
 message = input("Please enter message: ")
 scale = int(input("Please enter the scale between 0-9 "))
