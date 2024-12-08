@@ -11,19 +11,19 @@ special_char_list = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_',
                      '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'",
                      '<', '>', ',', '.', '?', '/', '`', '~']
 
-alphabets = int(input())
-nos = int(input())
-sc = int(input())
+num_alphabets = int(input())
+num_nos = int(input())
+num_sc = int(input())
 
 list = []
 
-for i in range(0, alphabets):
+for i in range(0, num_alphabets):
     list.append(random.choice(alphabet_list))
 
-for j in range(0, nos):
+for j in range(0, num_nos):
     list.append(random.choice(number_list))
 
-for k in range(0, sc):
+for k in range(0, num_sc):
     list.append(random.choice(special_char_list))
 
 random.shuffle(list)
