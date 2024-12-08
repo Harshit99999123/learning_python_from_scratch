@@ -35,7 +35,6 @@ while number_of_lives > 0 and not correct_character_guessed == len(word_selected
             print(f"lives remaining: {number_of_lives}")
             break
     if not correct_character_guessed_flag:
-        print("some")
         number_of_lives -= 1
         print(f"lives remaining: {number_of_lives}")
 
