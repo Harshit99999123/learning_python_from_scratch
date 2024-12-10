@@ -1,29 +1,26 @@
 import random
 
 
-def calculate_current_score(cards):
-    card_sum = 0
-    for card in cards:
-        card_sum += cards_values.get(card)
-
-    return card_sum
-
-
-def start_blackjack():
+def start_blackjack(cards):
     user_cards = []
     dealer_cards = []
 
     user_card1 = random.choice(cards)
+    cards.remove(user_card1)
     user_card2 = random.choice(cards)
-    dealer_card = random.choice(cards)
-
-    dealer_cards.append(dealer_card)
+    cards.remove(user_card2)
+    dealer_card1 = random.choice(cards)
+    cards.remove(dealer_card1)
+    dealer_cards.append(dealer_card1)
+    dealer_card2 = random.choice(cards)
+    cards.remove(dealer_card2)
+    dealer_cards.append(dealer_card2)
     user_cards.append(user_card1)
     user_cards.append(user_card2)
     user_card_sum = cards_values.get(user_card1) + cards_values.get(user_card2)
-    dealer_card_sum = cards_values.get(dealer_card)
+    dealer_card_sum = cards_values.get(dealer_card1) + cards_values.get(dealer_card2)
 
-    print(f"Computer first card is {dealer_card} with score {dealer_card_sum}")
+    print(f"Computer first card is {dealer_card1}")
 
     if user_card_sum == blackjack_score:
         print(f"You have hit the blackjack with cards {user_cards}")
@@ -38,6 +35,7 @@ def start_blackjack():
         hit_card = input("Do you want to hit: Y or N ")
         if hit_card.lower() == "y":
             next_user_card = random.choice(cards)
+            cards.remove(next_user_card)
             user_card_sum += cards_values.get(next_user_card)
             print(f"New card chosen is {next_user_card}. Card sum is {user_card_sum}")
             user_cards.append(next_user_card)
@@ -57,6 +55,7 @@ def start_blackjack():
 
     while dealer_card_sum < minimum_dealer_card_score:
         next_dealer_card = random.choice(cards)
+        cards.remove(next_dealer_card)
         dealer_card_sum += cards_values.get(next_dealer_card)
         dealer_cards.append(next_dealer_card)
 
@@ -93,8 +92,12 @@ cards_values = {
 }
 minimum_dealer_card_score = 17
 blackjack_score = 21
-cards = []
-for key in cards_values:
-    cards.append(key)
+play_blackjack = input("Do you wanna play blackjack? Y or n: ").lower().strip()
 
-start_blackjack()
+while play_blackjack == "y":
+    cards = []
+    for key in cards_values:
+        for count in range(0, 4):
+            cards.append(key)
+    start_blackjack(cards)
+    play_blackjack = input("Do you wanna play blackjack? Y or n: ").lower().strip()
