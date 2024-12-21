@@ -117,6 +117,11 @@ def order_coffee():
         return "on"
 
 
+def refill_machine():
+    for resource in current_resources:
+        current_resources[resource] = INITIAL_RESOURCES[resource]
+
+
 start_machine_flag = "on"
 
 while start_machine_flag != "off":
