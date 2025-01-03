@@ -1,6 +1,5 @@
 from turtle import Turtle, Screen
 from polygon import Polygon
-import random
 
 turtle = Turtle()
 for i in range(3, 11):
