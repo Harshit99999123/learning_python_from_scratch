@@ -54,5 +54,7 @@ for i in range(0, 10):
     if i != 9:
         turn_and_move_north()
 
+turtle.hideturtle()
+
 screen = t.Screen()
 screen.exitonclick()
